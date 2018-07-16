@@ -1,0 +1,476 @@
+{
+	"variables": [],
+	"info": {
+		"name": "home-work-2",
+		"_postman_id": "2424c937-35d9-815f-fccd-1a512a625083",
+		"description": "Node Masters Home Work 2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"description": "",
+			"item": [
+				{
+					"name": "Create User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var body = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable('user', body.id);",
+									"var req = JSON.parse(request.data);",
+									"postman.setEnvironmentVariable('password', req.password);"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{url}}/users",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"description": ""
+							},
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"description": "",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"User test\",\n\t\"email\": \"joao@example.com\",\n\t\"type\": \"client\",\n\t\"password\": \"123456\",\n\t\"address\": \"Any Street, any\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get user",
+					"request": {
+						"url": "{{url}}/users",
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Update user",
+					"request": {
+						"url": "{{url}}/users",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Joao\",\n\t\"email\": \"test@example.com\",\n\t\"address\": \"Any\"\n}"
+						},
+						"description": "Updates a user.\nAs the user email is the user id the email address canot change."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Tokens",
+			"description": "",
+			"item": [
+				{
+					"name": "Create Token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var body = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable('token', body.id);"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{url}}/tokens",
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"username\": \"{{user}}\",\n\t\"password\": \"{{password}}\"\n}"
+						},
+						"description": "Create a new token"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"postman.setEnvironmentVariable(\"token\", \"\");"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{url}}/tokens",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Deletes a token and ens the session, forcing user to Create a new token to access the endpoints"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Products",
+			"description": "",
+			"item": [
+				{
+					"name": "Create Product",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var body = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable('lastProduct', body.id);"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{url}}/products",
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Test product 4\",\n\t\"description\": \"Product 4 description\",\n\t\"price\": 4.00\n}"
+						},
+						"description": "Creates a new product"
+					},
+					"response": []
+				},
+				{
+					"name": "Update product",
+					"request": {
+						"url": {
+							"raw": "{{url}}/products?id={{lastProduct}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"products"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "{{lastProduct}}",
+									"equals": true,
+									"description": ""
+								}
+							],
+							"variable": []
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Test product 1\",\n\t\"description\": \"Product description\",\n\t\"price\": 1.02\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Product",
+					"request": {
+						"url": {
+							"raw": "{{url}}/products?id={{lastProduct}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"products"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "{{lastProduct}}",
+									"equals": true,
+									"description": ""
+								}
+							],
+							"variable": []
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "List products",
+					"request": {
+						"url": "{{url}}/products",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get Product",
+					"request": {
+						"url": {
+							"raw": "{{url}}/products?id=5441e2ff77b5e24bb2bc31f41ff59ca1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"products"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "5441e2ff77b5e24bb2bc31f41ff59ca1",
+									"equals": true,
+									"description": ""
+								}
+							],
+							"variable": []
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Clear the basket",
+					"request": {
+						"url": "{{url}}/basket",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Basket",
+			"description": "",
+			"item": [
+				{
+					"name": "List all products in the basket",
+					"request": {
+						"url": "{{url}}/basket",
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Adds a products into the basket",
+					"request": {
+						"url": "{{url}}/basket",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\": \"\",\n\t\"quantity\": 2\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Deletes a product from the basket",
+					"request": {
+						"url": {
+							"raw": "{{url}}/basket?id={{lastBasketProduct}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"basket"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "{{lastBasketProduct}}",
+									"equals": true,
+									"description": ""
+								}
+							],
+							"variable": []
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Orders",
+			"description": "",
+			"item": [
+				{
+					"name": "Adds a new Order",
+					"request": {
+						"url": "{{url}}/orders",
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Lists all orders",
+					"request": {
+						"url": "{{url}}/orders",
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Read one Order",
+					"request": {
+						"url": {
+							"raw": "{{url}}/orders?id=",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"orders"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "",
+									"equals": true,
+									"description": ""
+								}
+							],
+							"variable": []
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
