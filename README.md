@@ -6,7 +6,7 @@ It has everything it's requested and a little bit more.
 
 This API is strutured as an MVC, without the V since it has no views.
 
-For more detailed information follow the links bellow:
+For more detailed information and further documentation follow the links bellow:
 
 [Controllers](https://github.com/joaorsilva/nodejs-master-homework2/tree/master/lib/controllers) - Receive requests.
 [Models](https://github.com/joaorsilva/nodejs-master-homework2/tree/master/lib/models) - Data models.
@@ -29,6 +29,19 @@ All API endpoints require the user to login (create token) into the application 
 3. List the available products through a call to GET /products.
 4. Insert one or more products in your user's shopping basket through one or more calls to PUT /basket.
 5. Create an order through a call to POST /orders.
+
+## The root user
+This code cames with some sample data. If you use it (I advise, it's better experience) it will contain a ```root``` user that's the first ```admin``` type user.
+
+The root user login credentials are:
+```
+{
+	"username": "root@pnm.com",
+	"password": "123456"
+}
+```
+
+Reffer to the [Sample data](https://github.com/joaorsilva/nodejs-master-homework2/tree/master/sample-data) link for more details.
 
 ## Postman
 In the route of this project you will find a postman file with a collection and environment to test all the API calls in this project.
