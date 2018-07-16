@@ -16,6 +16,7 @@ Return the logged user's data.
 * **Header: token:** [token returned by the create token endpoint]
 * **Query string:** None
 * **JSON Body:** None
+#### Example
 
 ```bash
 	 curl -X GET \
@@ -50,8 +51,13 @@ The difference between the 2 types is that the ```admin``` type users can manage
 * **Header: token:** [token returned by the create token endpoint] (optional for creating ```client``` type users)
 * **Query string:** None
 * **JSON Body:** {name,type,email,password,address}
-
-``` curl --request POST --header "Content-Type: application/json" localhost:3000/users --data '{"name": "Test user","type":"client", "email":"test@pnm.com","password":"123456", "address": "12 abraham street, New York, NY"}' ```
+####Example
+```bash 
+	curl --request POST \
+	localhost:3000/users \
+	--header "Content-Type: application/json" \
+	--data '{"name": "Test user","type":"client", "email":"test@pnm.com","password":"123456", "address": "12 abraham street, New York, NY"}' 
+```
 
 #### Successfull Return
 ``` 
@@ -68,8 +74,15 @@ Updates the logged user data. This method is used to update the user's data. The
 * **Header: token:** [token returned by the create token endpoint]
 * **Query string:** None
 * **JSON Body:** {name,type,email (optional),password,address}
-
-``` curl --request PUT localhost:3000/users --header "Content-Type: application/json" --header "token:[token]"  --data '{"name": "Test user","type":"client", "email":"test@pnm.com","password":"123456", "address": "12 abraham street, New York, NY"}' ``` 
+####Example
+```bash
+	curl 
+	--request PUT \
+	localhost:3000/users \
+	--header "Content-Type: application/json" \
+	--header "token:[token]" \
+	--data '{"name": "Test user","type":"client", "email":"test@pnm.com","password":"123456", "address": "12 abraham street, New York, NY"}' 
+``` 
 
 #### Successfull Return
 ``` 
@@ -80,17 +93,25 @@ Updates the logged user data. This method is used to update the user's data. The
 Deletes the logged user. This method is used to delete a user account. Only the logged user can delete it's account.
 
 #### Parameters
+
 * **Header: token:** [token returned by the create token endpoint]
 * **Query string:** None
 * **JSON Body:** None
 
-``` curl --request DELETE localhost:3000/users --header "Content-Type: application/json" --header "token:[token]" ```
+####Example
+```bash 
+	curl \
+	--request DELETE  \
+	localhost:3000/users \
+	--header "Content-Type: application/json" \
+	--header "token:[token]" 
+```
 
 #### Successfull Return
 ``` 
 200
 ``` 
-
+ 
 ## /tokens Endpoint
 The token lasts for 1 hour if no operations are performed. If other token operations are performed then the token is renewed for 1 more hour.
 
@@ -106,7 +127,13 @@ Creates a new token for the session. Validates the username (email) and the user
 * **Query string:** None
 * **JSON Body:** {username,password}
 
-``` curl --request POST localhost:3000/tokens --header "Content-Type: application/json"  --data '{"username":"test@pnm.com","password":"123456"}' ```
+```bash
+	curl \
+	 localhost:3000/tokens \
+	--request POST \
+	--header "Content-Type: application/json"  \
+	--data '{"username":"test@pnm.com","password":"123456"}' 
+```
 
 #### Successfull Return
 ``` 
@@ -124,9 +151,16 @@ Deletes an existing token. This is also called a logout action.
 * **Query string:** None
 * **JSON Body:** None
 
-``` curl --request DELETE localhost:3000/tokens --header "Content-Type: application/json" --header "token:[token]"```
+```bash
+	curl 
+	--request DELETE 
+	localhost:3000/tokens 
+	--header "Content-Type: application/json" 
+	--header "token:[token]"
+```
 
 ##### Successfull Return
 ``` 
 200
 ```
+
