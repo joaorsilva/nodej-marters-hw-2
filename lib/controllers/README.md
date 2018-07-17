@@ -3,11 +3,11 @@ There are several api endpoints in this api, some of them accept more methods th
 
 The project available endpoint are:
 
-[/user](https://github.com/joaorsilva/nodej-marters-hw-2/tree/master/lib/controllers#users-endpoint)
-[/tokens](https://github.com/joaorsilva/nodej-marters-hw-2/tree/master/lib/controllers#tokens-endpoint)
-[/basket](https://github.com/joaorsilva/nodej-marters-hw-2/tree/master/lib/controllers#basket-endpoint)
-[/orders](https://github.com/joaorsilva/nodej-marters-hw-2/tree/master/lib/controllers#orders-endpoint)
-[/products](https://github.com/joaorsilva/nodej-marters-hw-2/tree/master/lib/controllers#products-endpoint)
+* [/user](https://github.com/joaorsilva/nodej-marters-hw-2/tree/master/lib/controllers#users-endpoint)
+* [/tokens](https://github.com/joaorsilva/nodej-marters-hw-2/tree/master/lib/controllers#tokens-endpoint)
+* [/basket](https://github.com/joaorsilva/nodej-marters-hw-2/tree/master/lib/controllers#basket-endpoint)
+* [/orders](https://github.com/joaorsilva/nodej-marters-hw-2/tree/master/lib/controllers#orders-endpoint)
+* [/products](https://github.com/joaorsilva/nodej-marters-hw-2/tree/master/lib/controllers#products-endpoint)
 
 ## /users Endpoint
 The users endpoint is responsible for all users data.
