@@ -8,13 +8,14 @@ This API is strutured as an MVC, without the V since it has no views.
 
 For more detailed information and further documentation follow the links bellow:
 
-[Controllers](https://github.com/joaorsilva/nodej-marters-hw-2/tree/master/lib/controllers) - Receive requests.
-[Models](https://github.com/joaorsilva/nodej-marters-hw-2/tree/master/lib/models) - Data models.
-[Apis](https://github.com/joaorsilva/nodej-marters-hw-2/tree/master/lib/apis) - External APIs (stripe & mailgun)
-[Drivers](https://github.com/joaorsilva/nodej-marters-hw-2/tree/master/lib/drivers) - File data driver.
-[Common files](https://github.com/joaorsilva/nodej-marters-hw-2/tree/master/lib) - Server and router.
-[Sample data](https://github.com/joaorsilva/nodej-marters-hw-2/tree/master/sample-data) - Sample product records and root user record.
-[Config](https://github.com/joaorsilva/nodej-marters-hw-2/tree/master/config) - Configuration settings.
+* [Controllers](https://github.com/joaorsilva/nodej-marters-hw-2/tree/master/lib/controllers) - Receive requests.
+* [Services](https://github.com/joaorsilva/nodej-marters-hw-2/tree/master/lib/services) - Implements each service logic.
+* [Models](https://github.com/joaorsilva/nodej-marters-hw-2/tree/master/lib/models) - Data models.
+* [Apis](https://github.com/joaorsilva/nodej-marters-hw-2/tree/master/lib/apis) - External APIs (stripe & mailgun)
+* [Drivers](https://github.com/joaorsilva/nodej-marters-hw-2/tree/master/lib/drivers) - File data driver.
+* [Common files](https://github.com/joaorsilva/nodej-marters-hw-2/tree/master/lib) - Server and router.
+* [Sample data](https://github.com/joaorsilva/nodej-marters-hw-2/tree/master/sample-data) - Sample product records and root user record.
+* [Config](https://github.com/joaorsilva/nodej-marters-hw-2/tree/master/config) - Configuration settings.
 
 ## Login requirements
 All API endpoints require the user to login (create token) into the application with the exception for the following endpoints:
