@@ -343,6 +343,31 @@ If the user is of type ```admin``` and no order ```id``` parameter is specified 
 ]
 ``` 
 
+### POST Method
+The orders endpoint post methodcreates a new order based on the products and quantities in the basket.
+#### Parameters
+* **Header: token:** [token returned by the POST /tokens endpoint]
+* **Query string:** None
+* **JSON Body:** {paymentToken}
+
+#### Example (All user orders)
+```bash
+	curl \
+	 --request POST \
+	 localhost:3000/orders \
+	 --header "Content-Type: application/json" \
+	 --header "token:a97a39c1e59112b61864f276373cc134",
+	 --data '{"paymentToken": "tok_visa"}'
+``` 
+
+#### Successfull Return
+``` 
+201
+{
+    "id":"04dc9d5a0fa7e8cd9d930c9a976814e4"
+}
+```
+
 ## /products Endpoint
 The products endpoint is responsible to manage everything regarding products in our database. This was not part of the project (as this could be static) but I though it could give intereting results.
 
@@ -427,7 +452,7 @@ The post method creates a new product in the database.
 ```
 #### Successfull Return
 ```
-200
+201
 {
 	"id":"04dc9d5a0fa7e8cd9d930c9a976814e4"
 }
