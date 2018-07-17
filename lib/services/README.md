@@ -5,11 +5,11 @@ They provide the real project functionality, for that they use all resources ava
 
 This project contains the following service classes:
 
-* UsersService
-* TokensService
-* BasketService
-* OrdersService
-* ProductsService
+* [UsersService](https://github.com/joaorsilva/nodej-marters-hw-2/tree/master/lib/services#usersservice-class)
+* [TokensService](https://github.com/joaorsilva/nodej-marters-hw-2/tree/master/lib/services#tokensservice-class)
+* [BasketService](https://github.com/joaorsilva/nodej-marters-hw-2/tree/master/lib/services#basketservice-class)
+* [OrdersService](https://github.com/joaorsilva/nodej-marters-hw-2/tree/master/lib/services#ordersservice-class)
+* [ProductsService](https://github.com/joaorsilva/nodej-marters-hw-2/tree/master/lib/services#productsservice-class)
 
 
 ## UsersService class
